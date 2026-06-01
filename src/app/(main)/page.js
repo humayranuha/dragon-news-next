@@ -1,4 +1,5 @@
 import LeftSidebar from "@/components/homepage/newsSection/LeftSidebar";
+import RightSidebar from "@/components/homepage/newsSection/RightSidebar";
 import LoadingAnimation from "@/components/LoadingAnimation";
 import Image from "next/image";
 
@@ -17,7 +18,9 @@ export default async function Home() {
         <LeftSidebar categories={categories} activeId="01"/>
       </div>
       <div className="text-white text-2xl bg-red-800 col-span-6">All News</div>
-      <div className="text-white text-2xl bg-teal-800 col-span-3">Social Icons</div>
+      <div className="text-black col-span-3 p-3">
+        <RightSidebar />
+      </div>
     </div>
   );
 }
