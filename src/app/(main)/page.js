@@ -1,3 +1,4 @@
+import LeftSidebar from "@/components/homepage/newsSection/LeftSidebar";
 import LoadingAnimation from "@/components/LoadingAnimation";
 import Image from "next/image";
 
@@ -12,13 +13,8 @@ export default async function Home() {
   console.log(categories.news_category);
   return (
     <div className="grid grid-cols-12 gap-3 container mx-auto my-11">
-      <div className="text-black text-2xl bg-red-50 col-span-3 p-2">
-        <h1 className="text-xl font-bold text-center p-2">All Categories</h1>
-        <ul className="flex flex-col gap-3">
-          {categories.news_category.map(category => {
-            return <li key={category.category_id} className="bg-slate-100 text-sm rounded-md p-2 text-center ">{category.category_name}</li>
-          })}
-        </ul>
+      <div className="text-black text-2xl col-span-3 p-2">
+        <LeftSidebar categories={categories} activeId="01"/>
       </div>
       <div className="text-white text-2xl bg-red-800 col-span-6">All News</div>
       <div className="text-white text-2xl bg-teal-800 col-span-3">Social Icons</div>
