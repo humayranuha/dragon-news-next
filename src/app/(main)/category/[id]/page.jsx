@@ -31,9 +31,9 @@ const CategoryNewsPage = async ({params}) => {
                 <LeftSidebar categories={categories} activeId="01" />
             </div>
             <div className="text-black text-2xl col-span-6 space-y-2">
-                All News
+                <h1 className="text-xl font-bold text-center p-2">All News</h1>
                 {news.length > 0 ?news.map(n => {
-                    return <div key={n._id} className="p-5 border rounded-md">{n.title}</div>
+                    return <div key={n._id} className="p-5 border rounded-md text-sm text-center">{n.title}</div>
                 }): <div className='flex items-center justify-center'><NoDataAnimation /></div>}
             </div>
             <div className="text-black col-span-3 p-3">
