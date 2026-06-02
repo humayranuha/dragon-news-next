@@ -1,6 +1,6 @@
 import LoadingAnimation from '@/components/LoadingAnimation';
 import NotFoundAnimation from '@/components/NotFoundAnimation';
-import { Link } from '@heroui/react';
+
 
 export default function Loading() {
     return (
