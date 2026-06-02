@@ -4,11 +4,14 @@ import RightSidebar from '@/components/homepage/newsSection/RightSidebar';
 import NoDataAnimation from '@/components/NoDataAnimation';
 import { getCategories, getNewsByCategoryId } from '@/lib/data';
 import React from 'react';
+import { FaRegStar, FaStar, FaStarHalfAlt } from 'react-icons/fa';
 
 
 
-const CategoryNewsPage = async ({params}) => {
-    const {id} = await params;
+
+
+const CategoryNewsPage = async ({ params }) => {
+    const { id } = await params;
     console.log(id);
 
     const categories = await getCategories();
@@ -24,9 +27,9 @@ const CategoryNewsPage = async ({params}) => {
             </div>
             <div className="text-black text-2xl col-span-6 flex flex-col gap-10">
                 <h1 className="text-xl font-bold text-center p-2">All News</h1>
-                {news.length > 0 ?news.map(n => {
-                    return <NewsCard key={n._id} news={n}/>
-                }): <div className='flex items-center justify-center'><NoDataAnimation /></div>}
+                {news.length > 0 ? news.map(n => {
+                    return <NewsCard key={n._id} news={n} />
+                }) : <div className='flex items-center justify-center'><NoDataAnimation /></div>}
             </div>
             <div className="text-black col-span-3 p-3">
                 <RightSidebar />

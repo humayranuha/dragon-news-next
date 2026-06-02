@@ -2,6 +2,26 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { CiBookmark, CiShare2, CiStar } from 'react-icons/ci';
+import { FaRegStar, FaStar, FaStarHalfAlt } from 'react-icons/fa';
+
+const renderRating = (rating) => {
+    const fullStars = Math.floor(rating);
+    const hasHalfStar = rating % 1 !== 0;
+    const emptyStars = 5 - Math.ceil(rating);
+
+    return (
+        <div className="flex items-center gap-1">
+            {[...Array(fullStars)].map((_, i) => (
+                <FaStar key={i} className="text-yellow-500" />
+            ))}
+            {hasHalfStar && <FaStarHalfAlt className="text-yellow-500" />}
+            {[...Array(emptyStars)].map((_, i) => (
+                <FaRegStar key={i} className="text-yellow-500" />
+            ))}
+            <span className="ml-2 text-gray-600 font-semibold">{rating}</span>
+        </div>
+    );
+};
 
 const NewsCard = ({ news}) => {
     return (
@@ -29,7 +49,7 @@ const NewsCard = ({ news}) => {
                 <p className='line-clamp-3'>{news.details}</p>
                 <div className='flex items-center justify-between'>
                     <div className='flex items-center justify-start gap-5'>
-                        <span className='text-xs flex'><CiStar /> {news.rating.number}</span>
+                        <span className='text-xs flex'> {renderRating(news.rating.number)}</span>
                         <span className='text-xs ml-5'>{news.total_view}</span>
                     </div>
                     <Link href={`/news/${news._id}`} className=' mt-2 flex items-center justify-end'>
