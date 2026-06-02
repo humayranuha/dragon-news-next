@@ -28,7 +28,7 @@ const CategoryNewsPage = async ({params}) => {
     return (
         <div className="grid grid-cols-12 gap-3 container mx-auto my-11">
             <div className="text-black text-2xl col-span-3 p-2">
-                <LeftSidebar categories={categories} activeId="01" />
+                <LeftSidebar categories={categories} activeId={id} />
             </div>
             <div className="text-black text-2xl col-span-6 space-y-2">
                 <h1 className="text-xl font-bold text-center p-2">All News</h1>
