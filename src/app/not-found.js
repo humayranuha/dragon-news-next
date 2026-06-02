@@ -1,6 +1,7 @@
 import LoadingAnimation from '@/components/LoadingAnimation';
 import NotFoundAnimation from '@/components/NotFoundAnimation';
-import { Link } from '@heroui/react';
+import Link from 'next/link';
+
 
 export default function NotFound() {
     return (
