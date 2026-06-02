@@ -87,12 +87,12 @@ const NewsDetailsPage = async ({ params }) => {
 
                         <div className="flex items-center gap-4">
                             <div className="flex items-center gap-1 text-gray-600">
-                                
+
                                 <span className="font-semibold">{news.total_view?.toLocaleString() || 0} views</span>
                             </div>
                             <div className="flex gap-3">
                                 <CiShare2 className="text-2xl text-gray-600 hover:text-blue-600 cursor-pointer transition-colors" />
-                                
+
                             </div>
                         </div>
                     </div>
@@ -124,22 +124,33 @@ const NewsDetailsPage = async ({ params }) => {
                     </div>
 
                     {/* Tags/Other Info */}
-                    {news.others_info && (
-                        <div className="mt-8 pt-6 border-t border-gray-200">
-                            <div className="flex flex-wrap gap-2">
-                                {news.others_info.is_todays_pick && (
-                                    <span className="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm font-medium">
-                                        🔥 Today Pick
-                                    </span>
-                                )}
-                                {news.others_info.is_trending && (
-                                    <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-medium">
-                                        📈 Trending
-                                    </span>
-                                )}
-                            </div>
+                    <div className='flex justify-between items-center mt-10'>
+                        <div>
+                            {news.others_info && (
+                                <div className="mt-8 pt-6 border-t border-gray-200">
+                                    <div className="flex flex-wrap gap-2">
+                                        {news.others_info.is_todays_pick && (
+                                            <span className="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm font-medium">
+                                                🔥 Today Pick
+                                            </span>
+                                        )}
+                                        {news.others_info.is_trending && (
+                                            <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-medium">
+                                                📈 Trending
+                                            </span>
+                                        )}
+                                    </div>
+                                </div>
+                            )}
                         </div>
-                    )}
+                        <div>
+                            <Link href={`/category/${news.category_id}`} className="inline-block mt-6">
+                                <button className="btn btn-error btn-sm">
+                                    Related news
+                                </button>
+                            </Link>
+                        </div>
+                    </div>
                 </div>
             </div>
 
