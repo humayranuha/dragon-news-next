@@ -1,9 +1,10 @@
+import NoDataAnimation from '@/components/NoDataAnimation';
 import React from 'react';
 
 const AboutPage = () => {
     return (
-        <div>
-            About us
+        <div className='flex items-center justify-center'>
+            <NoDataAnimation />
         </div>
     );
 };
