@@ -15,20 +15,17 @@ async function getNewsByCategoryId(category_id) {
     return data.data;
 }
 
-const CategoryNewsPage = async ({params}) => {
-    const {id} = await params;
-    console.log(id);
-
+const HomePage = async () => {
     const categories = await getCategories();
     // console.log(categories.news_category);
 
-    const news = await getNewsByCategoryId(id);
+    const news = await getNewsByCategoryId("01");
     // console.log(news);
 
     return (
         <div className="grid grid-cols-12 gap-3 container mx-auto my-11">
             <div className="text-black text-2xl col-span-3 p-2">
-                <LeftSidebar categories={categories} activeId={id} />
+                <LeftSidebar categories={categories} activeId="01" />
             </div>
             <div className="text-black text-2xl col-span-6 space-y-2">
                 <h1 className="text-xl font-bold text-center p-2">All News</h1>
@@ -43,4 +40,4 @@ const CategoryNewsPage = async ({params}) => {
     );
 };
 
-export default CategoryNewsPage;
+export default HomePage;
