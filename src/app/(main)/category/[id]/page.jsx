@@ -1,4 +1,5 @@
 import LeftSidebar from '@/components/homepage/newsSection/LeftSidebar';
+import NewsCard from '@/components/homepage/newsSection/NewsCard';
 import RightSidebar from '@/components/homepage/newsSection/RightSidebar';
 import NoDataAnimation from '@/components/NoDataAnimation';
 import { getCategories, getNewsByCategoryId } from '@/lib/data';
@@ -21,10 +22,10 @@ const CategoryNewsPage = async ({params}) => {
             <div className="text-black text-2xl col-span-3 p-2">
                 <LeftSidebar categories={categories} activeId={id} />
             </div>
-            <div className="text-black text-2xl col-span-6 space-y-2">
+            <div className="text-black text-2xl col-span-6 flex flex-col gap-10">
                 <h1 className="text-xl font-bold text-center p-2">All News</h1>
                 {news.length > 0 ?news.map(n => {
-                    return <div key={n._id} className="p-5 border rounded-md text-sm text-center">{n.title}</div>
+                    return <NewsCard key={n._id} news={n}/>
                 }): <div className='flex items-center justify-center'><NoDataAnimation /></div>}
             </div>
             <div className="text-black col-span-3 p-3">
