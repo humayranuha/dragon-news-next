@@ -22,7 +22,7 @@ const Navbar = () => {
                 {isSignedIn ? (
                     // Show UserButton when logged in
                     <UserButton 
-                        afterSignOutUrl="/category/01"
+                        
                         appearance={{
                             elements: {
                                 userButtonAvatarBox: "w-10 h-10",
